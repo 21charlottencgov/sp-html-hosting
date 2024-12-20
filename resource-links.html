@@ -8,6 +8,27 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: transparent;
         }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #preloader span {
+            font-size: 20px;
+            color: #4A90E2;
+            font-weight: bold;
+        }
+
+        /* Table Styles */
         .record-table {
             width: 100%;
             border-collapse: separate;
@@ -39,10 +60,14 @@
             justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .record-link:hover {
+        .record-link:hover, .record-link:focus {
             background-color: #1B5DAB;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            outline: none; /* Removes default outline for consistency */
+        }
+        .record-link:focus {
+            border: 2px solid #FFD700; /* Highlight for keyboard focus */
         }
         @media (max-width: 768px) {
             .record-table {
@@ -57,55 +82,61 @@
     </style>
 </head>
 <body>
-    <table class="record-table">
+    <!-- Preloader -->
+    <div id="preloader">
+        <span>Loading your table...</span>
+    </div>
+
+    <!-- Main Table Content -->
+    <table class="record-table" style="display: none;">
         <tbody>
             <tr>
                 <td>
-                    <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" class="record-link">
+                    <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" class="record-link" tabindex="1">
                         CATS RECORD RETENTION
                     </a>
                 </td>
                 <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" class="record-link">
+                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" class="record-link" tabindex="2">
                         CATS ARCHIVE INVENTORY
                     </a>
                 </td>
                 <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Legal%20and%20Litigation%20Holds/Current%20Holds.aspx" class="record-link">
+                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Legal%20and%20Litigation%20Holds/Current%20Holds.aspx" class="record-link" tabindex="3">
                         CATS LEGAL AND LITIGATION HOLDS
                     </a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://archives.ncdcr.gov/media/1066/open" class="record-link">
+                    <a href="https://archives.ncdcr.gov/media/1066/open" class="record-link" tabindex="4">
                         NC GENERAL RECORDS RETENTION SCHEDULE
                     </a>
                 </td>
                 <td>
-                    <a href="https://cnet/policies/Documents/Public%20Records%20Policy.pdf" class="record-link">
+                    <a href="https://cnet/policies/Documents/Public%20Records%20Policy.pdf" class="record-link" tabindex="5">
                         ADM20 PUBLIC RECORDS POLICY
                     </a>
                 </td>
                 <td>
-                    <a href="/sites/CATS/Policies%20and%20Procedures/CATS%20RIM01%20Control%20of%20Public%20Records.pdf" class="record-link">
+                    <a href="/sites/CATS/Policies%20and%20Procedures/CATS%20RIM01%20Control%20of%20Public%20Records.pdf" class="record-link" tabindex="6">
                         CATS RIM01 CONTROL OF PUBLIC RECORDS
                     </a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://archives.ncdcr.gov/program-records-schedule-local-government-agencies/open" class="record-link">
+                    <a href="https://archives.ncdcr.gov/program-records-schedule-local-government-agencies/open" class="record-link" tabindex="7">
                         NC PROGRAM RECORDS RETENTION SCHEDULE
                     </a>
                 </td>
                 <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Pages/TrainingMaterial.aspx" class="record-link">
+                    <a href="https://cityspaces/kbus/CATS/records/Pages/TrainingMaterial.aspx" class="record-link" tabindex="8">
                         RIM TRAINING
                     </a>
                 </td>
                 <td>
-                    <a href="https://www.charlottenc.gov/Services/Request-a-Public-Record" class="record-link">
+                    <a href="https://www.charlottenc.gov/Services/Request-a-Public-Record" class="record-link" tabindex="9">
                         SUBMIT A PUBLIC RECORDS REQUEST
                     </a>
                 </td>
@@ -113,7 +144,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <a href="https://cityspaces/citywide/rmt/SitePages/Home.aspx" class="record-link">
+                    <a href="https://cityspaces/citywide/rmt/SitePages/Home.aspx" class="record-link" tabindex="10">
                         CITYWIDE RECORDS MANAGEMENT
                     </a>
                 </td>
@@ -121,5 +152,13 @@
             </tr>
         </tbody>
     </table>
+
+    <script>
+        // Preloader script to display table after page loads
+        window.onload = function() {
+            document.getElementById('preloader').style.display = 'none';
+            document.querySelector('.record-table').style.display = 'table';
+        };
+    </script>
 </body>
 </html>
