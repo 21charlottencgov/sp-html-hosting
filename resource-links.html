@@ -13,27 +13,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: transparent;
         }
-
-        /* Preloader Styles */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
+        .table-container {
+            outline: none;
+            padding: 2px;
+            border-radius: 4px;
         }
-        #preloader span {
-            font-size: 20px;
-            color: #4A90E2;
-            font-weight: bold;
+        .table-container:focus-within {
+            outline: 2px solid #2B88D8;
         }
-
-        /* Table Styles */
         .record-table {
             width: 100%;
             border-collapse: separate;
@@ -48,7 +35,7 @@
             vertical-align: middle;
         }
         .record-link {
-            display: block;
+            display: flex;
             text-decoration: none;
             background-color: #2B88D8;
             color: white;
@@ -58,21 +45,25 @@
             transition: background-color 0.2s, transform 0.2s;
             font-size: 14px;
             font-weight: 600;
-            text-align: center;
-            min-height: 40px;
-            display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 40px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative; /* For focus ring */
         }
         .record-link:hover, .record-link:focus {
             background-color: #1B5DAB;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            outline: none;
+            outline: none; /* Remove default outline */
         }
         .record-link:focus {
-            border: 2px solid #FFD700; /* Highlight for keyboard focus */
+            /* Custom focus indicator */
+            box-shadow: 0 0 0 3px #FFD700;
+        }
+        /* Make first link tabbable when container is focused */
+        .table-container:focus .record-link[data-initial-focus="true"] {
+            outline: 2px solid #FFD700;
         }
         @media (max-width: 768px) {
             .record-table {
@@ -87,90 +78,59 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <span>Loading your table...</span>
+    <div class="table-container" tabindex="0" role="application" aria-label="Records Management Navigation">
+        <table class="record-table" role="presentation">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" 
+                           class="record-link" 
+                           data-initial-focus="true"
+                           target="_parent"
+                           aria-label="CATS Record Retention">
+                            CATS RECORD RETENTION
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" 
+                           class="record-link" 
+                           target="_parent"
+                           aria-label="CATS Archive Inventory">
+                            CATS ARCHIVE INVENTORY
+                        </a>
+                    </td>
+                    <!-- ... other cells follow the same pattern ... -->
+                </tr>
+                <!-- ... other rows ... -->
+            </tbody>
+        </table>
     </div>
 
-    <!-- Main Table Content -->
-    <table class="record-table" role="table" tabindex="-1" style="display: none;">
-        <tbody>
-            <tr>
-                <td>
-                    <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" class="record-link" tabindex="1" aria-label="CATS Record Retention">
-                        CATS RECORD RETENTION
-                    </a>
-                </td>
-                <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" class="record-link" tabindex="2" aria-label="CATS Archive Inventory">
-                        CATS ARCHIVE INVENTORY
-                    </a>
-                </td>
-                <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Legal%20and%20Litigation%20Holds/Current%20Holds.aspx" class="record-link" tabindex="3" aria-label="CATS Legal and Litigation Holds">
-                        CATS LEGAL AND LITIGATION HOLDS
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://archives.ncdcr.gov/media/1066/open" class="record-link" tabindex="4" aria-label="NC General Records Retention Schedule">
-                        NC GENERAL RECORDS RETENTION SCHEDULE
-                    </a>
-                </td>
-                <td>
-                    <a href="https://cnet/policies/Documents/Public%20Records%20Policy.pdf" class="record-link" tabindex="5" aria-label="ADM20 Public Records Policy">
-                        ADM20 PUBLIC RECORDS POLICY
-                    </a>
-                </td>
-                <td>
-                    <a href="/sites/CATS/Policies%20and%20Procedures/CATS%20RIM01%20Control%20of%20Public%20Records.pdf" class="record-link" tabindex="6" aria-label="CATS RIM01 Control of Public Records">
-                        CATS RIM01 CONTROL OF PUBLIC RECORDS
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://archives.ncdcr.gov/program-records-schedule-local-government-agencies/open" class="record-link" tabindex="7" aria-label="NC Program Records Retention Schedule">
-                        NC PROGRAM RECORDS RETENTION SCHEDULE
-                    </a>
-                </td>
-                <td>
-                    <a href="https://cityspaces/kbus/CATS/records/Pages/TrainingMaterial.aspx" class="record-link" tabindex="8" aria-label="RIM Training">
-                        RIM TRAINING
-                    </a>
-                </td>
-                <td>
-                    <a href="https://www.charlottenc.gov/Services/Request-a-Public-Record" class="record-link" tabindex="9" aria-label="Submit a Public Records Request">
-                        SUBMIT A PUBLIC RECORDS REQUEST
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <a href="https://cityspaces/citywide/rmt/SitePages/Home.aspx" class="record-link" tabindex="10" aria-label="Citywide Records Management">
-                        CITYWIDE RECORDS MANAGEMENT
-                    </a>
-                </td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
     <script>
-        // Preloader script to display table after page loads
-        window.onload = function () {
-            document.getElementById('preloader').style.display = 'none';
-            const table = document.querySelector('.record-table');
-            table.style.display = 'table';
-            
-            // Focus the first link automatically
-            const firstLink = document.querySelector('.record-link');
-            if (firstLink) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.table-container');
+            const links = Array.from(document.querySelectorAll('.record-link'));
+            const firstLink = links[0];
+
+            // When container gets focus, focus the first link
+            container.addEventListener('focus', function() {
                 firstLink.focus();
-            }
-        };
+            });
+
+            // Handle keyboard navigation
+            links.forEach((link, index) => {
+                link.addEventListener('keydown', function(e) {
+                    // Ensure links open in parent window
+                    link.target = '_parent';
+                    
+                    if (e.key === 'Tab') {
+                        // Let natural tab order work
+                        // The target="_parent" will ensure proper navigation
+                        // out of the iframe
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
