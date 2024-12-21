@@ -1,25 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Records Management Links</title>
     <style>
         body {
             margin: 0;
             padding: 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: transparent;
-        }
-        .table-container {
-            outline: none;
-            padding: 2px;
-            border-radius: 4px;
-        }
-        .table-container:focus-within {
-            outline: 2px solid #2B88D8;
         }
         .record-table {
             width: 100%;
@@ -35,7 +22,7 @@
             vertical-align: middle;
         }
         .record-link {
-            display: flex;
+            display: block;
             text-decoration: none;
             background-color: #2B88D8;
             color: white;
@@ -45,25 +32,17 @@
             transition: background-color 0.2s, transform 0.2s;
             font-size: 14px;
             font-weight: 600;
+            text-align: center;
+            min-height: 40px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 40px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative; /* For focus ring */
         }
-        .record-link:hover, .record-link:focus {
+        .record-link:hover {
             background-color: #1B5DAB;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            outline: none; /* Remove default outline */
-        }
-        .record-link:focus {
-            /* Custom focus indicator */
-            box-shadow: 0 0 0 3px #FFD700;
-        }
-        /* Make first link tabbable when container is focused */
-        .table-container:focus .record-link[data-initial-focus="true"] {
-            outline: 2px solid #FFD700;
         }
         @media (max-width: 768px) {
             .record-table {
@@ -78,59 +57,69 @@
     </style>
 </head>
 <body>
-    <div class="table-container" tabindex="0" role="application" aria-label="Records Management Navigation">
-        <table class="record-table" role="presentation">
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" 
-                           class="record-link" 
-                           data-initial-focus="true"
-                           target="_parent"
-                           aria-label="CATS Record Retention">
-                            CATS RECORD RETENTION
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" 
-                           class="record-link" 
-                           target="_parent"
-                           aria-label="CATS Archive Inventory">
-                            CATS ARCHIVE INVENTORY
-                        </a>
-                    </td>
-                    <!-- ... other cells follow the same pattern ... -->
-                </tr>
-                <!-- ... other rows ... -->
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.table-container');
-            const links = Array.from(document.querySelectorAll('.record-link'));
-            const firstLink = links[0];
-
-            // When container gets focus, focus the first link
-            container.addEventListener('focus', function() {
-                firstLink.focus();
-            });
-
-            // Handle keyboard navigation
-            links.forEach((link, index) => {
-                link.addEventListener('keydown', function(e) {
-                    // Ensure links open in parent window
-                    link.target = '_parent';
-                    
-                    if (e.key === 'Tab') {
-                        // Let natural tab order work
-                        // The target="_parent" will ensure proper navigation
-                        // out of the iframe
-                    }
-                });
-            });
-        });
-    </script>
+    <table class="record-table">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="https://cityspaces/kbus/CATS/records/SitePages/CATS%20Record%20Retention.aspx" class="record-link">
+                        CATS RECORD RETENTION
+                    </a>
+                </td>
+                <td>
+                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Archives%20%20Inventory%20Log/Archived.aspx" class="record-link">
+                        CATS ARCHIVE INVENTORY
+                    </a>
+                </td>
+                <td>
+                    <a href="https://cityspaces/kbus/CATS/records/Lists/CATS%20Legal%20and%20Litigation%20Holds/Current%20Holds.aspx" class="record-link">
+                        CATS LEGAL AND LITIGATION HOLDS
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://archives.ncdcr.gov/media/1066/open" class="record-link">
+                        NC GENERAL RECORDS RETENTION SCHEDULE
+                    </a>
+                </td>
+                <td>
+                    <a href="https://cnet/policies/Documents/Public%20Records%20Policy.pdf" class="record-link">
+                        ADM20 PUBLIC RECORDS POLICY
+                    </a>
+                </td>
+                <td>
+                    <a href="/sites/CATS/Policies%20and%20Procedures/CATS%20RIM01%20Control%20of%20Public%20Records.pdf" class="record-link">
+                        CATS RIM01 CONTROL OF PUBLIC RECORDS
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://archives.ncdcr.gov/program-records-schedule-local-government-agencies/open" class="record-link">
+                        NC PROGRAM RECORDS RETENTION SCHEDULE
+                    </a>
+                </td>
+                <td>
+                    <a href="https://cityspaces/kbus/CATS/records/Pages/TrainingMaterial.aspx" class="record-link">
+                        RIM TRAINING
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.charlottenc.gov/Services/Request-a-Public-Record" class="record-link">
+                        SUBMIT A PUBLIC RECORDS REQUEST
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a href="https://cityspaces/citywide/rmt/SitePages/Home.aspx" class="record-link">
+                        CITYWIDE RECORDS MANAGEMENT
+                    </a>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
