@@ -69,7 +69,7 @@
             background-color: #1B5DAB;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            outline: none; /* Removes default outline for consistency */
+            outline: none;
         }
         .record-link:focus {
             border: 2px solid #FFD700; /* Highlight for keyboard focus */
@@ -93,7 +93,7 @@
     </div>
 
     <!-- Main Table Content -->
-    <table class="record-table" role="table" style="display: none;">
+    <table class="record-table" role="table" tabindex="-1" style="display: none;">
         <tbody>
             <tr>
                 <td>
@@ -160,9 +160,16 @@
 
     <script>
         // Preloader script to display table after page loads
-        window.onload = function() {
+        window.onload = function () {
             document.getElementById('preloader').style.display = 'none';
-            document.querySelector('.record-table').style.display = 'table';
+            const table = document.querySelector('.record-table');
+            table.style.display = 'table';
+            
+            // Focus the first link automatically
+            const firstLink = document.querySelector('.record-link');
+            if (firstLink) {
+                firstLink.focus();
+            }
         };
     </script>
 </body>
