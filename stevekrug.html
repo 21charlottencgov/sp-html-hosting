@@ -3,17 +3,17 @@
 .quote-container {
   width: 100%;
   max-width: 1120px;
-  height: 200px; /* Explicit height for proper display */
   margin: 0 auto;
-  background-image: url("https://cityofcharlotte.sharepoint.com/sites/ccmstage_adadigitalaccess/images1/quotation-03.png");
-  background-size: contain; /* Ensures the image fits the container */
-  background-repeat: no-repeat;
-  background-position: left center; /* Aligns the quotation image on the left */
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 120px; /* Creates space for the background image */
+  padding: 20px;
   box-sizing: border-box;
+}
+.quote-img {
+  max-width: 100px; /* Set a reasonable width for the image */
+  height: auto;
+  margin-right: 20px; /* Space between the image and text */
 }
 .quote-text {
   color: #24824b;
@@ -27,8 +27,9 @@
 </style>
 
 <div class="quote-container">
+  <img class="quote-img" src="https://cityofcharlotte.sharepoint.com/sites/ccmstage_adadigitalaccess/images1/quotation-03.png" alt="Quotation Mark" />
   <p class="quote-text">
-    ​The one argument for accessibility that doesn’t get made nearly often enough is how extraordinarily better it makes some people’s lives. How many opportunities do we have to dramatically improve people’s lives just by doing our job a little better?  
+    The one argument for accessibility that doesn’t get made nearly often enough is how extraordinarily better it makes some people’s lives. How many opportunities do we have to dramatically improve people’s lives just by doing our job a little better?  
     <br><br>--- Steve Krug
   </p>
 </div>
