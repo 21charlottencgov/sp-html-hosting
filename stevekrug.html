@@ -1,35 +1,42 @@
 <style>
-/* Container styling for responsive layout */
 .quote-container {
-  width: 1120px; /* Fixed width to match the example */
-  height: 200px; /* Fixed height to match the example */
+  width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
   font-family: 'Open Sans', sans-serif, Arial;
-  color: #24824b;
-  line-height: 1.2;
 }
 
 .quote-img {
-  width: 50px; /* Adjust size to match the quotation mark in the example */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
   height: auto;
-  margin-right: 20px; /* Space between the image and text */
+  opacity: 0.1;
 }
 
 .quote-text {
-  font-size: 1.6em;
-  font-weight: bold;
+  position: relative;
+  color: #008751;
+  font-size: 1.5em;
+  line-height: 1.4;
   margin: 0;
+  padding-left: 80px;
   text-align: left;
+}
+
+.quote-author {
+  display: inline;
+  color: #008751;
 }
 </style>
 
 <div class="quote-container">
-  <img class="quote-img" src="https://cityofcharlotte.sharepoint.com/sites/ccmstage_adadigitalaccess/images1/quotation-03.png" alt="Quotation Mark" />
+  <img class="quote-img" src="https://cityofcharlotte.sharepoint.com/sites/ccmstage_adadigitalaccess/images1/quotation-03.png" alt="Decorative quotation mark" />
   <p class="quote-text">
-    The one argument for accessibility that doesn’t get made nearly often enough is how extraordinarily better it makes some people’s lives. How many opportunities do we have to dramatically improve people’s lives just by doing our job a little better?  
-    <br><br>--- Steve Krug
+    The one argument for accessibility that doesn't get made nearly often enough is how extraordinarily better it makes some people's lives. How many opportunities do we have to dramatically improve people's lives just by doing our job a little better? <span class="quote-author">---Steve Krug</span>
   </p>
 </div>
