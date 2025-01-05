@@ -19,6 +19,7 @@
             margin: 0 auto;
             max-width: 1200px;
             padding: 20px;
+            border: 1px solid #ddd; /* Optional border for visual clarity */
         }
         .column {
             flex: 1 1 30%;
@@ -44,14 +45,8 @@
             font-weight: bold;
             color: #0000ee;
         }
-        .adalink a:hover, .adalink a:focus {
-            color: black;
-            background-color: #ffe386;
-            text-decoration: underline !important;
-            padding: 5px 0;
-            border-top: 1px solid #bbb;
-            border-bottom: 1px solid #bbb;
-            border-radius: 4px;
+        .adalink a:focus {
+            outline: 2px solid #ffcc00; /* Highlight for focused links */
         }
         img {
             vertical-align: middle;
@@ -65,46 +60,46 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="region" aria-labelledby="additional-resources">
         <!-- Column 1: Additional Resources -->
         <div class="column">
-            <h3>Additional Resources</h3>
+            <h3 id="additional-resources">Additional Resources</h3>
             <hr>
             <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true">
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/Citywide_Contract_Announcement_Interpretation_Translation_Transcription_Services.pdf"> 
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/Citywide_Contract_Announcement_Interpretation_Translation_Transcription_Services.pdf" tabindex="0">
                     City's Interpretation Translation Transcription Services
                 </a>
             </p>
             <p class="adalink">
-                <a href="https://www.adacoordinator.org/">ADA Coordinator Training Certification Program</a>
+                <a href="https://www.adacoordinator.org/" tabindex="0">ADA Coordinator Training Certification Program</a>
             </p>
         </div>
 
         <!-- Column 2: Liaisons -->
         <div class="column">
-            <h3>Liaisons</h3>
+            <h3 id="liaisons">Liaisons</h3>
             <hr>
             <p class="adalink">
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Pages/Liaisons.aspx">Departmental Liaisons Contacts</a>
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Pages/Liaisons.aspx" tabindex="0">Departmental Liaisons Contacts</a>
             </p>
             <p class="adalink">
-                <a href="#">Digital Accessibility Liaisons Contacts</a>
+                <a href="#" tabindex="0">Digital Accessibility Liaisons Contacts</a>
             </p>
         </div>
 
         <!-- Column 3: Tutorials -->
         <div class="column">
-            <h3>Tutorial</h3>
+            <h3 id="tutorials">Tutorial</h3>
             <hr>
             <p class="adalink">
-                <a href="https://youtu.be/oT9bciqQNaY">Being Blind: Perception VS. Reality</a>
+                <a href="https://youtu.be/oT9bciqQNaY" tabindex="0">Being Blind: Perception VS. Reality</a>
             </p>
             <p class="adalink">
-                <a href="https://youtu.be/1-TDD-VB-sw">Sidewalk Safety Campaign</a>
+                <a href="https://youtu.be/1-TDD-VB-sw" tabindex="0">Sidewalk Safety Campaign</a>
             </p>
             <p class="adalink">
-                <a href="https://youtu.be/dJfhi2P60Xo">Designing for Accessibility: Overview</a>
+                <a href="https://youtu.be/dJfhi2P60Xo" tabindex="0">Designing for Accessibility: Overview</a>
             </p>
         </div>
     </div>
