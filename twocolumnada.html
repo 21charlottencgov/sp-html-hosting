@@ -38,85 +38,149 @@
             background-color: #bdbdbd;
             margin: 10px 0;
         }
+        .adalink {
+            margin: 8px 0;
+        }
         .adalink a {
             text-decoration: underline;
             font-weight: bold;
             color: #0000ee;
+            display: inline-block;
+            padding: 5px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            transition: all 0.2s ease;
         }
-        .adalink a:hover, .adalink a:focus {
+        .adalink a:hover, 
+        .adalink a:focus {
             color: black;
             background-color: #ffe386;
             text-decoration: underline !important;
-            padding: 5px 0;
-            border-top: 1px solid #bbb;
-            border-bottom: 1px solid #bbb;
-            border-radius: 4px;
+            padding: 5px;
+            border-color: #bbb;
+            outline: 2px solid #2196F3;
+            outline-offset: 2px;
         }
         img {
             vertical-align: middle;
             margin-right: 5px;
+            width: 16px;
+            height: 16px;
         }
         @media (max-width: 768px) {
             .column {
                 flex: 1 1 100%;
             }
         }
+        
+        /* Focus indicator styles */
+        *:focus {
+            outline: 2px solid #2196F3;
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+            padding: 1em;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="main-content" class="container" role="main">
         <!-- Column 1: Tools and Documents -->
-        <div class="column">
-            <h3>Tools and Documents</h3>
+        <div class="column" role="region" aria-labelledby="tools-heading">
+            <h3 id="tools-heading">Tools and Documents</h3>
             <hr>
-            <p class="adalink adap">
-                <a href="https://charlottenc.gov/Pages/WebDigitalAccessibilityPolicy.aspx" target="_blank">City of Charlotte Web and Digital Accessibility Policy</a>
-            </p>
-            <p class="adalink adap">
-                <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/ppicon.png?raw=true" />
-                <a href="https://cityofcharlotte.sharepoint.com/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/CharlotteNC%20Digital%20Web%20Accessibility%20and%20ADA.pptx" target="_blank">
-                    CharlotteNC Digital Web Accessibility and ADA
-                </a>
-            </p>
-            <p class="adalink adap">
-                <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Color%20contrast%20-%20table%20of%20color%20values%20for%20foreground%20and%20background%20color.docx" target="_blank">
-                    Color Contrast - Table of Color Values
-                </a>
-            </p>
-            <p class="adalink adap">
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/tools%20and%20web/Other%20resources/CCA-2.3.0.5.zip" target="_blank">Color Contrast Checker - Tool</a>
-            </p>
-            <p class="adalink adap">
-                <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Creating%20an%20Accessible%20Word%20or%20PDF%20Document.docx" target="_blank">
-                    Creating an Accessible Word or PDF Document
-                </a>
-            </p>
-            <p class="adalink adap">
-                <a href="https://www.ada.gov/index.html" target="_blank">Information and Technical Assistance on the Americans with Disabilities Act</a>
-            </p>
+            <nav aria-label="Tools and Documents Navigation">
+                <p class="adalink">
+                    <a href="https://charlottenc.gov/Pages/WebDigitalAccessibilityPolicy.aspx" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        City of Charlotte Web and Digital Accessibility Policy
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cityofcharlotte.sharepoint.com/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/CharlotteNC%20Digital%20Web%20Accessibility%20and%20ADA.pptx" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img alt="PowerPoint document" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/ppicon.png?raw=true">
+                        CharlotteNC Digital Web Accessibility and ADA
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Color%20contrast%20-%20table%20of%20color%20values%20for%20foreground%20and%20background%20color.docx" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img alt="Word document" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true">
+                        Color Contrast - Table of Color Values
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/tools%20and%20web/Other%20resources/CCA-2.3.0.5.zip" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Color Contrast Checker - Tool
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Creating%20an%20Accessible%20Word%20or%20PDF%20Document.docx" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img alt="Word document" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true">
+                        Creating an Accessible Word or PDF Document
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://www.ada.gov/index.html" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Information and Technical Assistance on the Americans with Disabilities Act
+                    </a>
+                </p>
+            </nav>
         </div>
 
         <!-- Column 2: ADA Transition Plan -->
-        <div class="column">
-            <h3>ADA Transition Plan</h3>
+        <div class="column" role="region" aria-labelledby="ada-heading">
+            <h3 id="ada-heading">ADA Transition Plan</h3>
             <hr>
-            <p class="adalink adap">
-                <a href="https://cityofcharlotte.sharepoint.com/sites/ADATransitionPlanTracking" target="_blank">City of Charlotte ADA Transition Plan Tracking</a>
-            </p>
-            <p class="adalink adap">
-                <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/City-of-Charlotte-ADA-Transition-Plan-Final.pdf" target="_blank"> 
-                    City of Charlotte ADA Transition Plan
-                </a>
-            </p>
-            <p class="adalink adap">
-                <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/PROW-Transition-Plan-FINAL-12-17-21.pdf" target="_blank">
-                    PROW Transition Plan
-                </a>
-            </p>
+            <nav aria-label="ADA Transition Plan Navigation">
+                <p class="adalink">
+                    <a href="https://cityofcharlotte.sharepoint.com/sites/ADATransitionPlanTracking" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        City of Charlotte ADA Transition Plan Tracking
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/City-of-Charlotte-ADA-Transition-Plan-Final.pdf" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img alt="PDF document" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true">
+                        City of Charlotte ADA Transition Plan
+                    </a>
+                </p>
+                <p class="adalink">
+                    <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/PROW-Transition-Plan-FINAL-12-17-21.pdf" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img alt="PDF document" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true">
+                        PROW Transition Plan
+                    </a>
+                </p>
+            </nav>
         </div>
     </div>
 </body>
