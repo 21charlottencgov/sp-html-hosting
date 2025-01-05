@@ -19,6 +19,7 @@
             margin: 0 auto;
             max-width: 1200px;
             padding: 20px;
+            border: 1px solid #ddd; /* Optional border for visual separation */
         }
         .column {
             flex: 1 1 45%;
@@ -43,14 +44,8 @@
             font-weight: bold;
             color: #0000ee;
         }
-        .adalink a:hover, .adalink a:focus {
-            color: black;
-            background-color: #ffe386;
-            text-decoration: underline !important;
-            padding: 5px 0;
-            border-top: 1px solid #bbb;
-            border-bottom: 1px solid #bbb;
-            border-radius: 4px;
+        .adalink a:focus {
+            outline: 2px solid #ffcc00; /* Visible focus indicator */
         }
         img {
             vertical-align: middle;
@@ -64,37 +59,31 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="region" aria-labelledby="tools-documents">
         <!-- Column 1: Tools and Documents -->
         <div class="column">
-            <h3>Tools and Documents</h3>
+            <h3 id="tools-documents">Tools and Documents</h3>
             <hr>
-            <p class="adalink adap">
-                <a href="https://charlottenc.gov/Pages/WebDigitalAccessibilityPolicy.aspx" target="_blank">City of Charlotte Web and Digital Accessibility Policy</a>
+            <p class="adalink">
+                <a href="https://charlottenc.gov/Pages/WebDigitalAccessibilityPolicy.aspx" tabindex="0">City of Charlotte Web and Digital Accessibility Policy</a>
             </p>
-            <p class="adalink adap">
+            <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/ppicon.png?raw=true" />
-                <a href="https://cityofcharlotte.sharepoint.com/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/CharlotteNC%20Digital%20Web%20Accessibility%20and%20ADA.pptx" target="_blank">
-                    CharlotteNC Digital Web Accessibility and ADA
-                </a>
+                <a href="https://cityofcharlotte.sharepoint.com/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/CharlotteNC%20Digital%20Web%20Accessibility%20and%20ADA.pptx" tabindex="0">CharlotteNC Digital Web Accessibility and ADA</a>
             </p>
-            <p class="adalink adap">
+            <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Color%20contrast%20-%20table%20of%20color%20values%20for%20foreground%20and%20background%20color.docx" target="_blank">
-                    Color Contrast - Table of Color Values
-                </a>
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Color%20contrast%20-%20table%20of%20color%20values%20for%20foreground%20and%20background%20color.docx" tabindex="0">Color Contrast - Table of Color Values</a>
             </p>
-            <p class="adalink adap">
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/tools%20and%20web/Other%20resources/CCA-2.3.0.5.zip" target="_blank">Color Contrast Checker - Tool</a>
+            <p class="adalink">
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/tools%20and%20web/Other%20resources/CCA-2.3.0.5.zip" tabindex="0">Color Contrast Checker - Tool</a>
             </p>
-            <p class="adalink adap">
+            <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/wordicon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Creating%20an%20Accessible%20Word%20or%20PDF%20Document.docx" target="_blank">
-                    Creating an Accessible Word or PDF Document
-                </a>
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Accessibility%20related%20documents/Creating%20an%20Accessible%20Word%20or%20PDF%20Document.docx" tabindex="0">Creating an Accessible Word or PDF Document</a>
             </p>
-            <p class="adalink adap">
-                <a href="https://www.ada.gov/index.html" target="_blank">Information and Technical Assistance on the Americans with Disabilities Act</a>
+            <p class="adalink">
+                <a href="https://www.ada.gov/index.html" tabindex="0">Information and Technical Assistance on the Americans with Disabilities Act</a>
             </p>
         </div>
 
@@ -102,20 +91,16 @@
         <div class="column">
             <h3>ADA Transition Plan</h3>
             <hr>
-            <p class="adalink adap">
-                <a href="https://cityofcharlotte.sharepoint.com/sites/ADATransitionPlanTracking" target="_blank">City of Charlotte ADA Transition Plan Tracking</a>
+            <p class="adalink">
+                <a href="https://cityofcharlotte.sharepoint.com/sites/ADATransitionPlanTracking" tabindex="0">City of Charlotte ADA Transition Plan Tracking</a>
             </p>
-            <p class="adalink adap">
+            <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/City-of-Charlotte-ADA-Transition-Plan-Final.pdf" target="_blank"> 
-                    City of Charlotte ADA Transition Plan
-                </a>
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/City-of-Charlotte-ADA-Transition-Plan-Final.pdf" tabindex="0">City of Charlotte ADA Transition Plan</a>
             </p>
-            <p class="adalink adap">
+            <p class="adalink">
                 <img alt="Icon for document types" src="https://github.com/21charlottencgov/sp-html-hosting/blob/main/pdficon.png?raw=true" />
-                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/PROW-Transition-Plan-FINAL-12-17-21.pdf" target="_blank">
-                    PROW Transition Plan
-                </a>
+                <a href="https://cnet/Departments/charlottecomm/Web_and_digital_accessibility/Documents/PROW-Transition-Plan-FINAL-12-17-21.pdf" tabindex="0">PROW Transition Plan</a>
             </p>
         </div>
     </div>
